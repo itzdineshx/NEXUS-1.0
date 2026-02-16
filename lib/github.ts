@@ -74,7 +74,18 @@ export class GitHubService {
   private token = process.env.GITHUB_TOKEN;
   private baseURL = 'https://api.github.com';
 
+  constructor() {
+    if (!this.token) {
+      console.warn('⚠️  GitHub token not found. Please set GITHUB_TOKEN in your .env.local file');
+      console.log('📝 Get your token from: https://github.com/settings/tokens');
+      console.log('🔐 Required scopes: public_repo (or repo for private repositories)');
+    }
+  }
+
   private getHeaders() {
+    if (!this.token) {
+      throw new Error('GitHub token not configured. Please set GITHUB_TOKEN in your .env.local file');
+    }
     return {
       'Authorization': `token ${this.token}`,
       'Accept': 'application/vnd.github.v3+json',
@@ -151,6 +162,12 @@ export class GitHubService {
       }
       return null;
     } catch (error) {
+      // Only log non-404 errors to reduce noise
+      const axiosError = error as { response?: { status: number } };
+      if (axiosError.response?.status === 404) {
+        // File doesn't exist - this is expected for many files
+        return null;
+      }
       console.error('GitHub file content error:', error);
       return null;
     }

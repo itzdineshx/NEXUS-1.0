@@ -5,10 +5,11 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Menu, X, Home, Search, BarChart3, Eye, Github, Zap, Code } from 'lucide-react';
+import { Menu, X, Home, Search, BarChart3, Eye, Github, Zap, Code, TrendingUp } from 'lucide-react';
 
 const navItems = [
   { href: '/search', icon: Search, label: 'Search' },
+  { href: '/trending', icon: TrendingUp, label: 'Trends' },
   { href: '/opensource', icon: Code, label: 'Open Source' },
   // { href: '/analyze', icon: BarChart3, label: 'Analyze' },
   { href: '/compare', icon: Zap, label: 'Compare' },
@@ -95,7 +96,7 @@ export default function LiquidGlassHeader() {
       <nav className="hidden md:flex items-center gap-6 px-8 py-4 bg-black/50 backdrop-blur-2xl border border-white/30 rounded-full shadow-2xl hover:shadow-golden-500/20 transition-all duration-300 hover:border-white/40">
         {/* Enhanced Liquid glass effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/15 pointer-events-none rounded-full opacity-80" />
-        <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/10 via-gold-500/20 to-bronze-500/10 blur-2xl opacity-40 -z-10 rounded-full" />
+        <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/10 via-gold-500/20 to-golden-500/10 blur-2xl opacity-40 -z-10 rounded-full" />
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none rounded-full" />
         
         <Link href="/" className="flex items-center gap-2 text-white font-bold text-lg hover:scale-110 transition-all duration-300 relative z-10 hover:drop-shadow-lg">
@@ -145,7 +146,7 @@ export default function LiquidGlassHeader() {
         <div className="flex items-center gap-4 px-5 py-3 bg-black/50 backdrop-blur-2xl border border-white/30 rounded-full shadow-2xl">
           {/* Enhanced Liquid glass effect */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/15 pointer-events-none rounded-full opacity-80" />
-          <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/10 via-golden-500/20 to-bronze-500/10 blur-2xl opacity-40 -z-10 rounded-full" />
+          <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/10 via-golden-500/20 to-golden-500/10 blur-2xl opacity-40 -z-10 rounded-full" />
           
           <Link href="/" className="flex items-center gap-2 text-white font-bold text-lg relative z-10">
             <Home className="w-5 h-5" />
@@ -169,7 +170,7 @@ export default function LiquidGlassHeader() {
           <div className="p-4 bg-black/80 backdrop-blur-3xl border border-white/40 rounded-2xl shadow-2xl w-full">
             {/* Enhanced Liquid glass effect for dropdown */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/20 pointer-events-none rounded-2xl opacity-90" />
-            <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/20 via-golden-500/30 to-bronze-500/20 blur-2xl opacity-60 -z-10 rounded-2xl" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-amber-500/20 via-golden-500/30 to-golden-500/20 blur-2xl opacity-60 -z-10 rounded-2xl" />
             
             <div className="flex flex-col gap-2 relative z-10 text-base sm:text-lg">
               {
